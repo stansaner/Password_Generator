@@ -161,7 +161,8 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  var randomChar = arr[Math.floor(Math.random() * arr.length)];
+  return randomChar;
 }
 
 // Function to generate password with user input
@@ -197,12 +198,18 @@ function generatePassword() {
     concatArray = concatArray.concat(specialCharacters);
   }
   
+  // The array used to return the full password
 
-  // Generate the desired number of characters from the chosen arrays
+  var fullPassword = []; // Initialized as an empty array
 
+  // Generate the desired number of characters from the array formed
+  // by concatenation of the arrays corresponding to the user options
+  
   for (var i = 0; i < userOptions.passL; i++) {
-
+    fullPassword += getRandom(concatArray);
   }
+
+  return fullPassword;
 }
 
 // Get references to the #generate element
