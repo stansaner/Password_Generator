@@ -173,12 +173,16 @@ function generatePassword() {
   var concatArray = []; // start with an empty array
 
   var userOptions = getPasswordOptions();
-  console.log("Options selected:")
-  console.log("Password length: "+userOptions.passL);
-  console.log("Uppercase: "+userOptions.upCase);
-  console.log("Lowercase: "+userOptions.lowCase);
-  console.log("Numeric: "+userOptions.numChar);
-  console.log("Special Characters: "+userOptions.specChar);
+
+  // Debug messages used for sanity check for the user options
+  // Enable/uncomment as needed
+
+  // console.log("Options selected:")
+  // console.log("Password length: "+userOptions.passL);
+  // console.log("Uppercase: "+userOptions.upCase);
+  // console.log("Lowercase: "+userOptions.lowCase);
+  // console.log("Numeric: "+userOptions.numChar);
+  // console.log("Special Characters: "+userOptions.specChar);
 
  
 
