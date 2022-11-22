@@ -155,16 +155,6 @@ function getPasswordOptions() {
     }
   }
 
- // Object with user options to be returned 
-
- //return {
- //         passL: passLength,
- //         specChar: specialChar,
- //         numChar: numericChar,
- //         lowCase: lowerCase,
- //         upCase: upperCase
- // };
-
   return userOptions;
 }
 
@@ -177,6 +167,10 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() { 
 
+  // Concatenate the desired arrays into a single one from which 
+  // the characters will be randomly chosen.
+  var concatArray = []; // start with an empty array
+
   var userOptions = getPasswordOptions();
   console.log("Options selected:")
   console.log("Password length: "+userOptions.passL);
@@ -184,6 +178,31 @@ function generatePassword() {
   console.log("Lowercase: "+userOptions.lowCase);
   console.log("Numeric: "+userOptions.numChar);
   console.log("Special Characters: "+userOptions.specChar);
+
+ 
+
+  if (userOptions.upCase) {
+    concatArray = concatArray.concat(upperCasedCharacters);
+  } 
+  
+  if (userOptions.lowCase) {
+    concatArray = concatArray.concat(lowerCasedCharacters);
+  } 
+  
+  if (userOptions.numChar) {
+    concatArray = concatArray.concat(numericCharacters);
+  } 
+  
+  if (userOptions.specChar) {
+    concatArray = concatArray.concat(specialCharacters);
+  }
+  
+
+  // Generate the desired number of characters from the chosen arrays
+
+  for (var i = 0; i < userOptions.passL; i++) {
+
+  }
 }
 
 // Get references to the #generate element
