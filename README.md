@@ -12,3 +12,7 @@ The user can specify:
     - Special characters
 
 The program uses prompt and confirm dialogues to obtain the required options from the user and prints the result to the page.
+
+## Application location
+
+https://stansaner.github.io/Password_Generator/
