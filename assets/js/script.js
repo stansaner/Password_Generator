@@ -90,7 +90,21 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var userOptions;
+
+  // Using an object to collect user options
+  // including the password length within the given
+  // constraints (numeric), and what kind of characters
+  // the password should contain (boolean).
+  // This object is then returned to the caller function.
+  // Initialize all booleans to false
+
+  var userOptions = {
+    passL: 0,
+    specChar: false,
+    numChar: false,
+    lowCase: false,
+    upCase: false
+    };
 
   // Validate user input for password length
 
@@ -105,15 +119,55 @@ function getPasswordOptions() {
   
   console.log("Password length: "+passLength);
 
-  // Object with user options to be returned 
-  // return userOptions {
-  //  passL: passLength,
-  //  specChar: 
-  //  numChar: 
-  //  lowCase:
-  //  upCase:
-  // };
+  userOptions.passL = passLength; 
+
+  // Query the user about each type of characters wanted in the password
+  // At least one type must be chosen
+
+  for (;true;) {
+    var lowerCase = confirm("Would you like to include lowercase?");
+    if (lowerCase) {
+      userOptions.lowCase = true;
+    }
+
+    var upperCase = confirm("Would you like to include uppercase?");
+    if (upperCase) {
+      userOptions.upCase = true;
+    }
+
+    var numericChar = confirm("Would you like to include numeric characters?")
+  
+    if (numericChar) {
+      userOptions.numChar = true;
+    }
+
+    var specialChar = confirm("Would you like to include special characters?");
+    if (specialChar) {
+      userOptions.specChar = true;
+    }
+
+    if(lowerCase || upperCase || numericChar || specialChar) {
+      // At least one type of characters was chosen, we are done
+      break;
+    } else {
+      // no type of characters was chosen, repeat the questioning
+      alert("Please choose at least one type of characters to include in your password.")
+    }
+  }
+
+ // Object with user options to be returned 
+
+ //return {
+ //         passL: passLength,
+ //         specChar: specialChar,
+ //         numChar: numericChar,
+ //         lowCase: lowerCase,
+ //         upCase: upperCase
+ // };
+
+  return userOptions;
 }
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -124,8 +178,12 @@ function getRandom(arr) {
 function generatePassword() { 
 
   var userOptions = getPasswordOptions();
-  // console.log("Options selected: ")
-
+  console.log("Options selected:")
+  console.log("Password length: "+userOptions.passL);
+  console.log("Uppercase: "+userOptions.upCase);
+  console.log("Lowercase: "+userOptions.lowCase);
+  console.log("Numeric: "+userOptions.numChar);
+  console.log("Special Characters: "+userOptions.specChar);
 }
 
 // Get references to the #generate element
