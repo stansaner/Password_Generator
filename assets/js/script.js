@@ -117,7 +117,10 @@ function getPasswordOptions() {
     }
   }
   
-  console.log("Password length: "+passLength);
+  // Debug to sanity check the desired password length
+  // Uncomment as needed
+  
+  // console.log("Password length: "+passLength);
 
   userOptions.passL = passLength; 
 
