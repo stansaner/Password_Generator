@@ -90,7 +90,29 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var userOptions;
 
+  // Validate user input for password length
+
+  for (;true;) {
+    var passLength = prompt("Choose the password length (between 10 - 64 characters)");
+    if (passLength < 10 || passLength > 64) {
+      alert("The password should be between 10 and 64 characters long. Please, try again.");
+    } else {
+      break;
+    }
+  }
+  
+  console.log("Password length: "+passLength);
+
+  // Object with user options to be returned 
+  // return userOptions {
+  //  passL: passLength,
+  //  specChar: 
+  //  numChar: 
+  //  lowCase:
+  //  upCase:
+  // };
 }
 
 // Function for getting a random element from an array
@@ -99,7 +121,10 @@ function getRandom(arr) {
 }
 
 // Function to generate password with user input
-function generatePassword() {
+function generatePassword() { 
+
+  var userOptions = getPasswordOptions();
+  // console.log("Options selected: ")
 
 }
 
